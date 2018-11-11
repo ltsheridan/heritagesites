@@ -1,0 +1,60 @@
+{% extends 'heritagesites/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+  <header>
+    <h2>Site Delete</h2>
+  </header>
+
+  <div class="row">
+    <div class="col-6">
+      {{ form.justification|as_crispy_field }}
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-6">
+      {{ form.description|as_crispy_field }}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {{ form.date_inscribed|as_crispy_field }}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      {{ form.longitude|as_crispy_field }}
+    </div>
+    <div class="col-3">
+      {{ form.latitude|as_crispy_field }}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {{ form.area_hectares|as_crispy_field }}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {{ form.transboundary|as_crispy_field }}
+    </div>
+  </div>
+
+
+  <form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete the Heritage Site "{{ site.site_name }}"?</p>
+    <button type="submit" class="btn btn-outline-danger">delete</button>
+    <a class="btn btn-outline-secondary" href="{% url 'site_detail' site.pk %}">cancel</a>
+  </form>
+
+{% endblock content %}
