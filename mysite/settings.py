@@ -12,6 +12,9 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+SECRET_KEY=secrets.SECRET_KEY
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = secrets.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = secrets.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'heritagesites.apps.HeritagesitesConfig',
     'crispy_forms',
+    'django_filters',
     'social_django',
     'test_without_migrations',
 ]

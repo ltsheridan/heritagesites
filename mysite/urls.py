@@ -28,6 +28,7 @@ urlpatterns = [
     path('', lambda r: HttpResponseRedirect('heritagesites/')),
     path('admin/', admin.site.urls),
     path('auth/', include('social_django.urls', namespace='social')),
+    path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL},
          name='logout'),
     path('heritagesites/', include('heritagesites.urls')),
