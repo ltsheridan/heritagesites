@@ -21,6 +21,7 @@ from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.urls import path, include
+from django.conf.urls import include
 
 # Use static() to add url mapping to serve static files during development (only)
 
@@ -32,4 +33,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL},
          name='logout'),
     path('heritagesites/', include('heritagesites.urls')),
+    path('heritagesites/api/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('api-auth/', include('rest_framework.urls')),
+    path('heritagesites/api/', include('api.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
